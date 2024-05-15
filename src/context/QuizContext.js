@@ -1,12 +1,10 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 export const QuizContext = createContext();
 
 export const quizReducer = (state, action) => {
   switch (action.type) {
     case "CREATE_QUIZ":
-      // console.log(state);
-      // console.log(action.payload);
       return {
         quizzes: [action.payload, ...state.quizzes],
       };
@@ -17,19 +15,19 @@ export const quizReducer = (state, action) => {
 
 export const QuizContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(quizReducer, {
-    quizzes: [
-      {
-        created: null,
-        description: "",
-        id: "",
-        modified: null,
-        questions_answers: [],
-        score: null,
-        title: "",
-        url: "",
-      },
-    ],
+    quizzes: [],
   });
+
+  useEffect(() => {
+    const fetchInitalQuiz = async () => {
+      const response = await fetch("/quizData.json");
+      const data = await response.json();
+
+      dispatch({ type: "CREATE_QUIZ", payload: data });
+    };
+
+    fetchInitalQuiz();
+  }, []);
 
   return (
     <QuizContext.Provider value={{ ...state, dispatch }}>

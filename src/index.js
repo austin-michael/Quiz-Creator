@@ -7,11 +7,9 @@ import { QuizContextProvider } from "./context/QuizContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <QuizContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </QuizContextProvider>
-  </React.StrictMode>
+  <QuizContextProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </QuizContextProvider>
 );

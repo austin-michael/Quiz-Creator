@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 import CreateQuestion from "./CreateQuestion";
 import { useQuizContext } from "../hooks/useQuizContext";
 import { getCurrentDateTime } from "../utils/date";
 
 const CreateQuiz = () => {
+  const navigate = useNavigate();
+
   const { dispatch } = useQuizContext();
 
   const createQuiz = (e) => {
     e.preventDefault();
+
+    console.log("create quiz");
 
     const { title, description, url } = e.target;
 
@@ -23,6 +28,8 @@ const CreateQuiz = () => {
     };
 
     dispatch({ type: "CREATE_QUIZ", payload: quiz });
+
+    navigate("/");
   };
 
   return (
