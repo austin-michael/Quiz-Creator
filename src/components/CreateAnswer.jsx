@@ -10,12 +10,13 @@ import React from "react";
 
 const CreateAnswer = () => {
   return (
-    <div>
+    <>
+      <h2>Answers</h2>
       <label htmlFor="answer">Answer</label>
       <input type="text" id="answer" name="answer" />
       <label htmlFor="is_true">Correct Answer</label>
       <input type="checkbox" id="is_true" name="is_true" />
-    </div>
+    </>
   );
 };
 

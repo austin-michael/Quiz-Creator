@@ -1,0 +1,14 @@
+.quiz-container {
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  input {
+    margin-bottom: 16px;
+  }
+}

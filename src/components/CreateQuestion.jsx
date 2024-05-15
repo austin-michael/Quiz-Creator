@@ -13,6 +13,8 @@ import CreateAnswer from "./CreateAnswer";
 const CreateQuestion = () => {
   return (
     <>
+      <h2>Questions</h2>
+
       <label htmlFor="text">Text</label>
       <input type="text" id="text" name="text" />
 

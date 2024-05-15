@@ -53,6 +53,8 @@ $surface-400: #575757;
 $surface-500: #717171;
 $surface-600: #8b8b8b;
 
+@use "./styles/quiz";
+
 * {
   margin: 0;
   padding: 0;
